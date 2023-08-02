@@ -332,7 +332,7 @@ func NewStmt(text string, conn *Connection) *Stmt {
 	} else if strings.HasPrefix(uCmdText, "INSERT") ||
 		strings.HasPrefix(uCmdText, "MERGE") {
 		ret.stmtType = DML
-		ret.bulkExec = true
+		ret.bulkExec = false //ORA-03111: break received on communication channel
 	} else if strings.HasPrefix(uCmdText, "UPDATE") ||
 		strings.HasPrefix(uCmdText, "DELETE") {
 		ret.stmtType = DML
